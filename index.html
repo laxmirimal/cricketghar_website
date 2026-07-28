@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Ghar | Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #050505; /* Deep Black */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            perspective: 1000px; /* Enables 3D space */
+        }
+
+        /* Animated Background Particles */
+        .background-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #1a1500 0%, #050505 80%);
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, #FFD700 0%, #B8860B 100%);
+            box-shadow: 0 0 20px #FFD700;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        /* 3D Card Container */
+        .card-container {
+            width: 90%;
+            max-width: 700px;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Main Card - Dominant Gold */
+        .card {
+            background: linear-gradient(135deg, #FBF5B7 0%, #D4AF37 40%, #AA771C 80%, #684803 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.2), 
+                        inset 0 0 20px rgba(255, 255, 255, 0.5);
+            transform: translateZ(50px);
+            border: 2px solid #FFF5C3;
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2); }
+            100% { box-shadow: 0 20px 80px rgba(255, 215, 0, 0.5); }
+        }
+
+        /* 3D Floating Elements Inside Card */
+        .card-content {
+            transform: translateZ(80px); /* Pops out from the card */
+            transform-style: preserve-3d;
+        }
+
+        /* 3D Typography */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #111;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #fff, 4px 4px 0px rgba(0,0,0,0.2);
+            animation: float-text 4s ease-in-out infinite;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 40px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        @keyframes float-text {
+            0%, 100% { transform: translateY(0px) translateZ(80px); }
+            50% { transform: translateY(-10px) translateZ(80px); }
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: #050505;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            transform: translateZ(60px);
+            border: 1px solid #D4AF37;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .contact-item span {
+            background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-left: 10px;
+        }
+
+        /* SVG Icons */
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: #D4AF37;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1rem; }
+            .card { padding: 40px 20px; }
+            .contact-item { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Gold Particles Background -->
+    <div class="background-particles" id="particles"></div>
+
+    <!-- 3D Interactive Container -->
+    <div class="card-container" id="cardContainer">
+        <div class="card">
+            <div class="card-content">
+                <h1>Cricket Ghar</h1>
+                <h2>Launching Soon</h2>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <span>cricketghar14@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                        </svg>
+                        <span>+977 9852620755</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate Floating Gold Particles
+        const particleContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            let particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Randomize size, position, and animation duration
+            let size = Math.random() * 8 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = Math.random() * 5 + 3 + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            
+            particleContainer.appendChild(particle);
+        }
+
+        // 3D Tilt Effect on Mouse Move
+        const container = document.getElementById('cardContainer');
+        
+        document.addEventListener('mousemove', (e) => {
+            let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+            let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+            container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Reset 3D tilt when mouse leaves the window
+        document.addEventListener('mouseleave', () => {
+            container.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            container.style.transition = `transform 0.5s ease`;
+        });
+
+        // Remove transition delay when mouse enters for snappy feel
+        document.addEventListener('mouseenter', () => {
+            container.style.transition = `transform 0.1s ease-out`;
+        });
+    </script>
+
+</body>
+</html>
